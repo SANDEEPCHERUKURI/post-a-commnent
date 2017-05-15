@@ -24,6 +24,8 @@
     "core-js": "^2.4.1",
     "jsonfile": "^3.0.0",
     "ng2-bootstrap": "^1.6.3",
+    "ng2-opd-popup": "^1.1.21",
+    "ng2-select": "^1.2.0",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },

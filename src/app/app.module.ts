@@ -8,6 +8,7 @@ import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { AppComponent } from './app.component';
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { CommentsComponent } from './comments/comments.component';
+import {PopupModule} from 'ng2-opd-popup';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CommentsComponent } from './comments/comments.component';
     FormsModule,
     HttpModule,
     AlertModule.forRoot(),
-    BootstrapModalModule
+    BootstrapModalModule,
+    PopupModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

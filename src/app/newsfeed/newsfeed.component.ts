@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild} from '@angular/core';
 import { DialogComponent, DialogService } from "ng2-bootstrap-modal";
 import {Http} from '@angular/http';
 import {HTTPTestService} from "./http-test.service"
@@ -6,6 +6,7 @@ import {error} from "util";
 import {computeMsgId} from "@angular/compiler/src/i18n/digest";
 import {until} from "selenium-webdriver";
 import titleContains = until.titleContains;
+import {Popup} from 'ng2-opd-popup';
 
 //import { ConfirmComponent } from '.confirm/confirm.component';
 @Component({
@@ -15,6 +16,7 @@ import titleContains = until.titleContains;
   providers:[HTTPTestService]
 })
 export class NewsfeedComponent {
+
   public data;
   public news;
   public com;
@@ -22,6 +24,7 @@ export class NewsfeedComponent {
   public comment1;
 
   constructor(public _httpService:HTTPTestService) {
+
     this._httpService.getjsondata()
       .subscribe(data => this.data = data,
         error=>alert(error),
@@ -33,7 +36,9 @@ export class NewsfeedComponent {
       error=>alert(error),
         ()=>console.log("Finished2"));
     //console.log(this.com);
+
   }
+  @ViewChild('popup5') popup5: Popup;
   ontheData(){
     console.log(this.data);
     alert(this.data);
@@ -85,4 +90,25 @@ export class NewsfeedComponent {
     this.clear();
 
   }
+
+  showPopup5(){
+    this.popup5.options = {
+      cancleBtnClass: "btn btn-default",
+      confirmBtnClass: "btn btn-mbe-attack ",
+      color: "#A0DE4F",
+      header: "Login...",
+      widthProsentage:50,
+      animation: "bounceInDown",
+      confirmBtnContent: "Login",
+    }
+    this.popup5.show(this.popup5.options);
+  }
+  add_name(){
+    alert("Name")
+  }
+  login(){
+    alert('Email: ' +'  Password: ' );
+    this.popup5.hide();
+  }
+
 }
